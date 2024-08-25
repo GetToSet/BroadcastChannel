@@ -65,10 +65,10 @@ html {
 
 .copyright-wrap {
   position: sticky;
-  top: 120px;
+  top: 140px;
   color: #666;
   line-height: 1.5;
-  font-size: 14px;
+  font-size: 13px;
   display: none;
 }
 
