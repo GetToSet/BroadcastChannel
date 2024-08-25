@@ -2,6 +2,7 @@
 import { getEnv } from '../lib/env'
 import voidFile from '../assets/void.png'
 import rss from '../assets/rss.svg'
+import globe from '../assets/globe.svg'
 import podcast from '../assets/podcast.svg'
 import twitter from '../assets/twitter.svg'
 import github from '../assets/github.svg'
@@ -13,6 +14,7 @@ import bluesky from '../assets/bluesky.svg'
 const { SITE_URL, RSS_URL } = Astro.locals
 const { channel } = Astro.props
 
+const HOMEPAGE = getEnv(import.meta.env, Astro, 'HOMEPAGE')
 const PODCASRT = getEnv(import.meta.env, Astro, 'PODCASRT')
 const TWITTER = getEnv(import.meta.env, Astro, 'TWITTER')
 const GITHUB = getEnv(import.meta.env, Astro, 'GITHUB')
@@ -42,6 +44,14 @@ const staticProxy = getEnv(import.meta.env, Astro, 'STATIC_PROXY') ?? '/static/'
     <a href={RSS_URL} target="_blank" rel="alternate" type="application/rss+xml" title="RSS Feed">
       <img {...rss} alt="RSS" class="social-icon" width="1em" />
     </a>
+
+    {
+      HOMEPAGE && (
+        <a href={HOMEPAGE} target="_blank" title="Home">
+          <img {...globe} alt="Home" class="social-icon" width="1em" />
+        </a>
+      )
+    }
 
     {
       PODCASRT && (
